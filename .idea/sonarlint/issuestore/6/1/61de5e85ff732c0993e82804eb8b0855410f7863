@@ -1,0 +1,19 @@
+
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(­Þ¤ƒúÿÿÿÿ8°«ó¯Ù-
+isquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(þ ¤Ò8·®øâØ-
+¶%squid:RedundantThrowsDeclarationCheck"yRemove the declaration of thrown exception 'java.lang.IllegalAccessException', as it cannot be thrown from method's body.(¡¤Ù©þÿÿÿÿ8ÁÚŒ²Ù-
+V
+squid:S106"9Replace this use of System.out or System.err by a logger.(»²Óü8¥ßî¯Ù-
+[
+squid:S106C"9Replace this use of System.out or System.err by a logger.(ö©µÿÿÿÿÿ8‘ÅŽáØ-
+`squid:UnusedPrivateMethod"/Remove this unused private "createData" method.(¡¤Ù©þÿÿÿÿ8°«ó¯Ù-
+isquid:CommentedOutCodeLine9"<This block of commented-out lines of code should be removed.(áÅœÉ8ôã½‹Ù-
+nsquid:CommentedOutCodeLine""<This block of commented-out lines of code should be removed.(ð†‘ùûÿÿÿÿ8Äœ´‹Ù-
+V
+squid:S106"9Replace this use of System.out or System.err by a logger.(õ½¤Ç8ü¡ô¯Ù-
+Tsquid:S1068"1Remove this unused "entityManager" private field.(åíåúÿÿÿÿ8ôã½‹Ù-
+[
+squid:S106B"9Replace this use of System.out or System.err by a logger.(Õ¨¼äûÿÿÿÿ8Ë”„áØ-
+V
+squid:S106E"9Replace this use of System.out or System.err by a logger.(°ÈÇî8ÅÞ•áØ-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ¥ùšøÿÿÿÿ8°«ó¯Ù-

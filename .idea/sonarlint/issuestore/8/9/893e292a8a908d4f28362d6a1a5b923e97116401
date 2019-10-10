@@ -1,0 +1,10 @@
+
+Isquid:S1452."&Remove usage of generic wildcard type.(Ûº¿Õÿÿÿÿÿ8ÃÔö…Ù-
+Xsquid:S1118	":Add a private constructor to hide the implicit public one.(Ë€öÊ8·È†Ù-
+_squid:UselessImportCheck"4Remove this unused import 'java.lang.reflect.Field'.(„‡Áú8ä‚¯Ù-
+V
+squid:S106>"9Replace this use of System.out or System.err by a logger.(Ùúö®8àƒí¶Ù-
+Jsquid:S1481?",Remove this unused "methods" local variable.(åò¶©8Á¢¢·Ù-
+Ysquid:S1854?";Remove this useless assignment to local variable "methods".(åò¶©8Á¢¢·Ù-
+Wsquid:S1854;"9Remove this useless assignment to local variable "list1".(ıÙ®8îÃË¸Ù-
+Isquid:S14528"&Remove usage of generic wildcard type.(ÑŠß‹ûÿÿÿÿ8€“˜ŒÙ-

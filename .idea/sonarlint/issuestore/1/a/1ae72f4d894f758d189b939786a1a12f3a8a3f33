@@ -1,0 +1,12 @@
+
+squid:S14888"\Immediately return this expression instead of assigning it to the temporary variable "list".(á“çıÿÿÿÿ8»áã…Ù-
+Ssquid:S26291"7Use the built-in formatting to construct this argument.(ğãäøÿÿÿÿ
+Nsquid:S2629*"7Use the built-in formatting to construct this argument.(²Ÿ¡ï
+Fsquid:S1068"*Remove this unused "LOGGER" private field.(­‡ÿ›ıÿÿÿÿ
+Asquid:S1068"*Remove this unused "nextId" private field.(ˆ¼Ù°
+Osquid:S1068",Remove this unused "instance" private field.(‡ü¯·ÿÿÿÿÿ8•¿‹Ù-
+vsquid:S4144)"SUpdate this method so that its implementation is not identical to "add" on line 31.(ĞºÏÆøÿÿÿÿ8“Ø ¯Ù-
+Hsquid:S1068",Remove this unused "contacts" private field.(ß¾àßıÿÿÿÿ
+Psquid:S11352"2Complete the task associated to this TODO comment.(…ïœ†8ƒ©É…Ù-
+Tsquid:S1068"6Remove this unused "DATABASE_NAMESPACE" private field.(»†ö‡8÷ìÇ…Ù-
+Usquid:S2629 "7Use the built-in formatting to construct this argument.(²Ÿ¡ï8¯ÀÃ…Ù-

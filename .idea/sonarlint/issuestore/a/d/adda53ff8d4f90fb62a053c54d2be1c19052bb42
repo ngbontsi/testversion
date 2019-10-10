@@ -1,0 +1,13 @@
+
+Usquid:S2629%"7Use the built-in formatting to construct this argument.(²Ÿ¡ï8Î·Á‹Ù-
+_squid:S11265"AReplace this if-then-else statement by a single return statement.(Ø¹äî8®ç’³Ù-
+esquid:UselessImportCheck"5Remove this unused import 'java.lang.reflect.Method'.(Í“¯äüÿÿÿÿ8ÁŒ“¹Ù-
+\squid:S1854J"9Remove this useless assignment to local variable "list1".(Âñıàüÿÿÿÿ8¸ëÍûÚ-
+Zsquid:S2629B"7Use the built-in formatting to construct this argument.(ğãäøÿÿÿÿ8ûõş¯Ù-
+[
+squid:S106Q"9Replace this use of System.out or System.err by a logger.(‹†šÔıÿÿÿÿ8¸ëÍûÚ-
+Psquid:S1135C"2Complete the task associated to this TODO comment.(…ïœ†8ûõş¯Ù-
+¤squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¶…®ıÿÿÿÿ8ËÄ¸Ù-
+psquid:S4144$"SUpdate this method so that its implementation is not identical to "add" on line 26.(€Çàm8¦Â˜¯Ù-
+Usquid:S2629"7Use the built-in formatting to construct this argument.(²Ÿ¡ï8Î·Á‹Ù-
+@squid:S1118"Hide this public constructor.(¶…®ıÿÿÿÿ8µá—¸Ù-
