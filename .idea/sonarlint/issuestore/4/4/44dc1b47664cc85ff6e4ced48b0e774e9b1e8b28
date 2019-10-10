@@ -1,8 +1,8 @@
 
+Msquid:S00108O")Either remove or fill this block of code.(°÷ÈËúÿÿÿÿ8íò˜³Ù-
 Gsquid:S5411r"*Use the primitive boolean expression here.(ÙÁÔ8ÇœÉ¶Ù-
+Isquid:S2160"+Override the "equals" method in this class.(·ÀŞ8íò˜³Ù-
+lsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(·ÀŞ8íò˜³Ù-
 [
 squid:S106k"9Replace this use of System.out or System.err by a logger.(‰Øùéúÿÿÿÿ8Ñıê³Ù-
-Isquid:S2160"+Override the "equals" method in this class.(·ÀŞ8íò˜³Ù-
-Msquid:S00108O")Either remove or fill this block of code.(°÷ÈËúÿÿÿÿ8íò˜³Ù-
 Msquid:S1068"*Remove this unused "logger" private field.(Üñ„Çøÿÿÿÿ8íò˜³Ù-
-lsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(·ÀŞ8íò˜³Ù-

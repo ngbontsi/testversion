@@ -1,8 +1,8 @@
 
+Psquid:S1948'"-Make "billService" transient or serializable.(®¯ŸÓşÿÿÿÿ8­¸Ù-
 [
 squid:S106P"9Replace this use of System.out or System.err by a logger.(€İ˜Òûÿÿÿÿ8ºÃ•şÚ-
-nsquid:CommentedOutCodeLine-"<This block of commented-out lines of code should be removed.(À Èšüÿÿÿÿ8”õòŞØ-
-[squid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Ö…¼¸Ù-
-Xsquid:S2209e"5Change this instance-reference to a static reference.(©Î‹×şÿÿÿÿ8Ö…¼¸Ù-
 Nsquid:S2160 "+Override the "equals" method in this class.(Ûºàéúÿÿÿÿ8”õòŞØ-
-Psquid:S1948'"-Make "billService" transient or serializable.(®¯ŸÓşÿÿÿÿ8­¸Ù-
+Xsquid:S2209e"5Change this instance-reference to a static reference.(©Î‹×şÿÿÿÿ8Ö…¼¸Ù-
+[squid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Ö…¼¸Ù-
+nsquid:CommentedOutCodeLine-"<This block of commented-out lines of code should be removed.(À Èšüÿÿÿÿ8”õòŞØ-

@@ -1,5 +1,2 @@
 
-`squid:UselessImportCheck"0Remove this unused import 'java.time.LocalDate'.(›‘¬θύÿÿÿÿ8„ύ‰Ω-
-asquid:UselessImportCheck"6Remove this unused import 'com.vaadin.CustomerStatus'.(Τ‹Υ”8Φτω‰Ω-
-dsquid:UselessImportCheck"9Remove this unused import 'com.vaadin.QuantityConstants'.(ÒΙΨΎ8Χ―Ω-
 qsquid:S2975y"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(Λ”λ8‘‡ίΨ-

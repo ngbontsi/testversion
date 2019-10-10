@@ -1,16 +1,16 @@
 
-Hsquid:S1068"2Remove this unused "customerBinder" private field.(Æ¶æt
-Hsquid:S1068",Remove this unused "customer" private field.(íŸÞÛþÿÿÿÿ
-jsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(‚˜Éþÿÿÿÿ
-?squid:S1068"(Remove this unused "myUI" private field.(ÖöœÛ
-psquid:S001178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ùÄã8‡“ÇüÚ-
-Isquid:S1068"-Remove this unused "birthdate" private field.(’†ºÒÿÿÿÿÿ
-Gsquid:S2160"+Override the "equals" method in this class.(‚˜Éþÿÿÿÿ
 V
 squid:S106="9Replace this use of System.out or System.err by a logger.(ñ›Ø¾8‡“ÇüÚ-
 Asquid:S1068"*Remove this unused "status" private field.(½èÙÇ
-Asquid:S1068"*Remove this unused "delete" private field.(Æâª
-Esquid:S1068")Remove this unused "email" private field.(ÇÉšúþÿÿÿÿ
-Dsquid:S1068"(Remove this unused "save" private field.(Ž¶½¨þÿÿÿÿ
+Isquid:S1068"-Remove this unused "birthdate" private field.(’†ºÒÿÿÿÿÿ
+psquid:S001178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ùÄã8‡“ÇüÚ-
+Hsquid:S1068",Remove this unused "customer" private field.(íŸÞÛþÿÿÿÿ
+?squid:S1068"(Remove this unused "myUI" private field.(ÖöœÛ
 Hsquid:S1068",Remove this unused "lastName" private field.(é®äÃÿÿÿÿÿ
+Dsquid:S1068"(Remove this unused "save" private field.(Ž¶½¨þÿÿÿÿ
+jsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(‚˜Éþÿÿÿÿ
 Isquid:S1068"-Remove this unused "firstName" private field.(Ú®íøÿÿÿÿ
+Hsquid:S1068"2Remove this unused "customerBinder" private field.(Æ¶æt
+Gsquid:S2160"+Override the "equals" method in this class.(‚˜Éþÿÿÿÿ
+Esquid:S1068")Remove this unused "email" private field.(ÇÉšúþÿÿÿÿ
+Asquid:S1068"*Remove this unused "delete" private field.(Æâª
