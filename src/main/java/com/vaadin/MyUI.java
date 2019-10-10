@@ -4,13 +4,16 @@ import javax.servlet.annotation.WebServlet;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.forms.OrderingForm;
+import com.vaadin.forms.TabSheetForm;
 import com.vaadin.icons.VaadinIcons;
+import com.vaadin.model.OrderData;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
+import com.vaadin.service.BillService;
 import com.vaadin.shared.ui.ValueChangeMode;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
-import com.vaadin.db.FireBase;
 
 
 import java.util.List;
@@ -28,12 +31,12 @@ import java.util.logging.Logger;
 @Theme("mytheme")
 public class MyUI extends UI {
 
-    private CustomerService service = CustomerService.getInstance();
-    private Grid<Customer> grid = new Grid<>(Customer.class);
-    private TextField filter = new TextField();
-    private CustomerForm form = new CustomerForm(this);
-    private TabSheetForm tabForm = new TabSheetForm(this);
 
+    private Grid<OrderData> grid = new Grid<>(OrderData.class);
+    private TextField filter = new TextField();
+    private OrderingForm form = new OrderingForm(this);
+    private TabSheetForm tabForm = new TabSheetForm(this);
+private BillService billService = BillService.getInstance();
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
@@ -64,7 +67,7 @@ public class MyUI extends UI {
 
 
 
-            grid.setColumns("firstName", "lastName", "orderDate","address","contact","product","quantity");
+            grid.setColumns("firstName", "lastName", "orderDate","productName","productPrice");
 
             HorizontalLayout main = new HorizontalLayout(grid, panel);
             main.setSizeFull();
@@ -72,8 +75,9 @@ public class MyUI extends UI {
             tabForm.setSizeFull();
             main.setExpandRatio(grid, 2);
             layout.addComponents(styling, main,tabForm);
+            layout.addComponents(styling, main,tabForm);
 
-
+grid.addItemClickListener(e-> System.out.println(e.getItem().getFirstName()));
             updateList();
             setContent(layout);
 
@@ -91,13 +95,13 @@ public class MyUI extends UI {
 
     }
 
-    protected void updateList() {
-        // fetch list of Customers from service and assign it to Grid
-//        List<Customer> customerList = service.findAll(filter.getValue());
-//        grid.setItems(customerList);
+    public void updateList() {
+//         fetch list of Customers from service and assign it to Grid
+        tabForm.updateScreen();
+        grid.setItems(billService.findAll());
     }
 
-    protected void openWindow(Window popupWindow) {
+    public void openWindow(Window popupWindow) {
         if (popupWindow != null) {
             addWindow(popupWindow);
 

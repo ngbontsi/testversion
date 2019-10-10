@@ -4,7 +4,6 @@ import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.database.*;
-import com.vaadin.CustomerService;
 
 import java.io.FileInputStream;
 
@@ -59,7 +58,7 @@ public class FireBase {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 // Wait for initial data before deciding to create or not
-                CustomerService.maybeCreateInitialData(snapshot);
+//                CustomerService.maybeCreateInitialData(snapshot);
             }
 
             @Override

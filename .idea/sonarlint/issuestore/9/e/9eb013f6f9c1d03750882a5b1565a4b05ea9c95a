@@ -1,20 +1,0 @@
-
-_squid:UselessImportCheck";Remove this unused import 'com.vaadin.ui.themes.ValoTheme'.(∫ªÊ·
-\squid:UselessImportCheck"8Remove this unused import 'com.vaadin.server.UserError'.(„å÷Ó
-esquid:UselessImportCheck"<Remove this unused import 'com.vaadin.event.ShortcutAction'.(˘ûôõ˝ˇˇˇˇ
-jsquid:MaximumInheritanceDepth
-"<This class has 7 parents which is greater than 5 authorized.(Çùò…˛ˇˇˇˇ
-Gsquid:S2160
-"+Override the "equals" method in this class.(Çùò…˛ˇˇˇˇ
-Msquid:S1948"1Make "customerService" transient or serializable.(»ËÁı˛ˇˇˇˇ
-Isquid:S1068"-Remove this unused "firstName" private field.(⁄ÅÆÌ¯ˇˇˇˇ
-Hsquid:S1068",Remove this unused "lastName" private field.(ÈÆ‰√ˇˇˇˇˇ
-Esquid:S1068")Remove this unused "email" private field.(«…ö˙˛ˇˇˇˇ
-Asquid:S1068"*Remove this unused "status" private field.(ΩËŸ«
-Isquid:S1068"-Remove this unused "birthdate" private field.(íÜ∫“ˇˇˇˇˇ
-Dsquid:S1068"(Remove this unused "save" private field.(é∂Ω®˛ˇˇˇˇ
-Asquid:S1068"*Remove this unused "delete" private field.(∆‚™ê
-Osquid:S1068"3Remove this unused "customerService" private field.(»ËÁı˛ˇˇˇˇ
-Hsquid:S1068",Remove this unused "customer" private field.(Ìüﬁ€˛ˇˇˇˇ
-?squid:S1068"(Remove this unused "myUI" private field.(÷ˆú€
-Hsquid:S1068"2Remove this unused "customerBinder" private field.(∆∂Êt
