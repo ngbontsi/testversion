@@ -164,7 +164,7 @@
 					</filesets>
 				</configuration>
 			</plugin>
-
+			<!-- for deploy settings -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>

@@ -1,0 +1,1 @@
+web: java -jar target/testversion-1.0-SNAPSHOP.war
