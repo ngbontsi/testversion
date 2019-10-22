@@ -6,6 +6,7 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.forms.OrderingForm;
 import com.vaadin.forms.TabSheetForm;
+import com.vaadin.forms.UpdateOrderForm;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.model.OrderData;
 import com.vaadin.server.VaadinRequest;
@@ -36,7 +37,8 @@ public class MyUI extends UI {
     private TextField filter = new TextField();
     private OrderingForm form = new OrderingForm(this);
     private TabSheetForm tabForm = new TabSheetForm(this);
-private BillService billService = BillService.getInstance();
+    private BillService billService = BillService.getInstance();
+    private Window popupWindow;
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
@@ -45,10 +47,10 @@ private BillService billService = BillService.getInstance();
 //            FireBase.initialise();
 
             final VerticalLayout layout = new VerticalLayout();
-            Panel panel = new Panel("Customer panel");
+            Panel panel = new Panel("Place an Order");
             panel.setSizeUndefined();
             panel.setContent(form);
-            setTheme("newtheme");
+//            setTheme("newtheme");
 
             filter.setPlaceholder("search by name...");
             filter.addValueChangeListener(e -> updateList());
@@ -63,21 +65,29 @@ private BillService billService = BillService.getInstance();
             styling.setStyleName(ValoTheme.LAYOUT_COMPONENT_GROUP);
 
 
-
-
-
-
-            grid.setColumns("firstName", "lastName", "orderDate","productName","productPrice");
+            grid.setColumns("firstName", "lastName", "orderDate", "productName", "productPrice");
 
             HorizontalLayout main = new HorizontalLayout(grid, panel);
             main.setSizeFull();
             grid.setSizeFull();
             tabForm.setSizeFull();
             main.setExpandRatio(grid, 2);
-            layout.addComponents(styling, main,tabForm);
-            layout.addComponents(styling, main,tabForm);
+            layout.addComponents(styling, main, tabForm);
+            layout.addComponents(styling, main, tabForm);
 
-grid.addItemClickListener(e-> System.out.println(e.getItem().getFirstName()));
+            grid.addItemClickListener(e -> {
+                Panel paymentPanel = new Panel("Order Pyment");
+                paymentPanel.setSizeUndefined();
+                paymentPanel.setContent(new UpdateOrderForm(this, e.getItem()));
+                popupWindow = new Window();
+                popupWindow.center();
+                popupWindow.setClosable(false);
+                popupWindow.setModal(true);
+                popupWindow.setResizable(false);
+                popupWindow.setContent(paymentPanel);
+                openWindow();
+
+            });
             updateList();
             setContent(layout);
 
@@ -87,12 +97,7 @@ grid.addItemClickListener(e-> System.out.println(e.getItem().getFirstName()));
             Logger.getLogger(getClass().getName()).log(Level.SEVERE,
                     "Failed to init firebase", e);
 
-
         }
-
-
-
-
     }
 
     public void updateList() {
@@ -101,11 +106,17 @@ grid.addItemClickListener(e-> System.out.println(e.getItem().getFirstName()));
         grid.setItems(billService.findAll());
     }
 
-    public void openWindow(Window popupWindow) {
+    public void openWindow() {
         if (popupWindow != null) {
             addWindow(popupWindow);
-
+        }else {
+            popupWindow = new Window();
+            addWindow(popupWindow);
         }
+    }
+
+    public void closeWindow() {
+        popupWindow.close();
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
