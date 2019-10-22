@@ -22,6 +22,16 @@ public class OrderData implements Serializable {
     private String productName;
     @Column(name = "productPrice")
     private BigDecimal productPrice;
+    @Column(name = "payment")
+    private BigDecimal payment;
+
+    public BigDecimal getPayment() {
+        return payment;
+    }
+
+    public void setPayment(BigDecimal payment) {
+        this.payment = payment;
+    }
 
     public String getFirstName() {
         return firstName;

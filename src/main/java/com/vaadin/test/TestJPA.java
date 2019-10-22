@@ -17,12 +17,12 @@ public class TestJPA {
 //        entityManager = entityManagerFactory.createEntityManager();
             System.out.println(QuantityConstants.SIX);
             System.out.println(QuantityConstants.SIX.quantity);
-//        try {
-//
-//            createData();
-//        } catch (IllegalAccessException e) {
-//            e.printStackTrace();
-//        }
+        try {
+
+            createData();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
     }
     private static void createData() throws IllegalAccessException {
 

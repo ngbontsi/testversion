@@ -121,19 +121,17 @@ public class OrderingForm extends FormLayout {
             subContent.addComponent(new Label("Sorry your order did not get completed"));
             subContent.addComponents(new Button("Ok"));
             popupWindow.center();
-            myUI.openWindow(popupWindow);
+
         }
-
-
-
 
     }
 
     private void clearData() {
-        firstName.setValue("");
-        lastName.setValue("");
-        contact.setValue("");
-        address.setValue("");
-        quantity.setValue(QuantityConstants.ZERO);
+        firstName.clear();
+        lastName.clear();
+        contact.clear();
+        address.clear();
+        quantity.clear();
+        product.clear();
     }
 }

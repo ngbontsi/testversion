@@ -23,6 +23,27 @@ public class Bill {
     private LocalDate orderDate;
     @Column(name = "paid")
     private boolean paid;
+    @Column(name = "payment")
+    private BigDecimal payment;
+    @Column(name = "outstandingBalance")
+    private BigDecimal outstandingBalance;
+
+    public BigDecimal getPayment() {
+        return payment;
+    }
+
+    public void setPayment(BigDecimal payment) {
+        this.payment = payment;
+    }
+
+    public BigDecimal getOutstandingBalance() {
+        return outstandingBalance;
+    }
+
+    public void setOutstandingBalance(BigDecimal outstandingBalance) {
+        this.outstandingBalance = outstandingBalance;
+    }
+
     @Column(name = "paidDate")
     private LocalDate paidDate;
 

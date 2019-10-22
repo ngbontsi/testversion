@@ -12,7 +12,7 @@ public class SQLSTATEMENTS {
     public static final String ODER_BY_PRODUCT = "SELECT p FROM " + Bill.class.getSimpleName() + " WHERE customerId = ";
     public static final String ODER_BY_ORDER_DATE = "SELECT p FROM " + Bill.class.getSimpleName() + " WHERE orderDate = ";
     public static final String ODER_BY_PAY_DATE = "SELECT p FROM " + Bill.class.getSimpleName() + " WHERE paidDate = ";
-    public static final String CUSTOM_ODER_FOR_ALL = "SELECT cus.uid,cus.firstName,cus.lastName,bil.orderDate,pro.productName,bil.billPrice  productPrice " +
+    public static final String CUSTOM_ODER_FOR_ALL = "SELECT cus.uid,cus.firstName,cus.lastName,bil.orderDate,pro.productName,bil.billPrice  productPrice, bil.payment " +
                                                         "from "+Bill.class.getSimpleName().toLowerCase() +" bil ,"+ Customer.class.getSimpleName().toLowerCase()+" cus ,"+
                                                             Product.class.getSimpleName().toLowerCase()+
                                                                 " pro where bil.customerId = cus.uid and bil.productId = pro.uid ";
