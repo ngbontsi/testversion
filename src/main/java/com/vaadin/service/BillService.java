@@ -9,6 +9,7 @@ import com.vaadin.model.OrderData;
 import com.vaadin.model.Product;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -26,7 +27,7 @@ public class BillService {
     public static Bill add(Bill item) {
         getLogger().info("Set user " + item.getId() + " to " + item);
 
-        return (Bill) DatabaseHandler.insertEntity(item);
+        return (Bill) DatabaseHandler.updateEntity(item);
     }
 
     protected static Logger getLogger() {
@@ -35,23 +36,48 @@ public class BillService {
 
     public static Bill update(Bill item) {
         getLogger().info("Set user " + item.getId() + " to " + item);
-        return (Bill) DatabaseHandler.insertEntity(item);
+        return (Bill) DatabaseHandler.updateEntity(item);
 
 
     }
 
+    public static Boolean payTheBill(Customer customer, BigDecimal payment) {
+
+        Bill customerBill = getCustomerBill(customer);
+
+        return false;
+    }
+
+    public static Bill getCustomerBill(Customer customer) {
+
+        return (Bill) DatabaseHandler.findEntity(SQLSTATEMENTS.ODER_BY_USER + customer.getId());
+    }
+
     public static Boolean createBill(Customer customer, Product product, QuantityConstants quantity) {
+        Bill customerBill = getCustomerBill(customer);
         Bill bill = new Bill();
         bill.setCustomerId(customer.getId());
         bill.setProductId(product.getId());
         bill.setOrderDate(LocalDate.now());
         bill.setPaid(false);
-        bill.setQuantity(Long.valueOf(quantity.quantity));
-        bill.setBillPrice(calculatePrice(product, bill.getQuantity()));
-        bill = (Bill) DatabaseHandler.insertEntity(bill);
+        if (customerBill == null) {
+            bill.setQuantity(Long.valueOf(quantity.quantity));
+            bill.setBillPrice(calculatePrice(product, bill.getQuantity()));
+            bill = add(bill);
+
+        } else {
+
+            customerBill.setQuantity(customerBill.getQuantity() + quantity.quantity);
+            customerBill.setBillPrice(customerBill.getBillPrice().add(calculatePrice(product, customerBill.getQuantity())));
+
+                bill = add(bill);
+
+
+        }
 
         if (bill.getId() != null)
             return true;
+
         return false;
 
 
@@ -62,24 +88,23 @@ public class BillService {
     }
 
 
-    public static void delete(Bill item) {
+    public static boolean delete(Bill item) {
         getLogger().info("Delete user " + item);
-//        TODO
+        return DatabaseHandler.delete(item);
 
     }
 
     public static List<OrderData> findAll() {
         EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
         entityManager.getTransaction().begin();
-        List<OrderData> list1 = new ArrayList<>();
-        list1 = entityManager.createNativeQuery(SQLSTATEMENTS.CUSTOM_ODER_FOR_ALL,OrderData.class).getResultList();
+        List<OrderData> bills = new ArrayList<>();
+        bills = entityManager.createNativeQuery(SQLSTATEMENTS.CUSTOM_ODER_FOR_ALL, OrderData.class).getResultList();
 
         entityManager.getTransaction().commit();
         entityManager.close();
 
-        for (OrderData data: list1)
-            System.out.println("Printing Data: "+data);
-        return list1;
+
+        return bills;
 
     }
 

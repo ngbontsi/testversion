@@ -14,6 +14,7 @@ import com.vaadin.service.CustomerService;
 import com.vaadin.service.ProductService;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
+import com.vaadin.utils.ValidatorUtil;
 import org.apache.log4j.Logger;
 
 
@@ -77,7 +78,7 @@ public class UpdateOrderForm extends FormLayout {
     }
 
     private void save() {
-        if(payment.getValue().equals("")){
+        if(ValidatorUtil.isEmpty(payment)){
             payment.setComponentError(new UserError("You need to enter amount"));
         }else{
             myUI.updateList();

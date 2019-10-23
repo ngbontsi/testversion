@@ -13,6 +13,7 @@ import com.vaadin.service.CustomerService;
 import com.vaadin.service.ProductService;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
+import com.vaadin.utils.ValidatorUtil;
 import org.apache.log4j.Logger;
 
 
@@ -24,6 +25,7 @@ public class OrderingForm extends FormLayout {
     private TextField lastName = new TextField();
     private TextField contact = new TextField();
     private TextField address = new TextField();
+    private CheckBox existingCustomer = new CheckBox();
     private NativeSelect<String> product = new NativeSelect<>();
     private NativeSelect<QuantityConstants> quantity = new NativeSelect<>();
 
@@ -40,81 +42,107 @@ public class OrderingForm extends FormLayout {
 
         setSizeUndefined();
         HorizontalLayout buttons = new HorizontalLayout(save, delete);
+        existingCustomer.setCaption("Existing Customer?");
         firstName.setPlaceholder("first name");
         firstName.setIcon(VaadinIcons.USER);
         firstName.setRequiredIndicatorVisible(true);
-        firstName.setComponentError(new UserError("Name can not be empty"));
+
 
         lastName.setPlaceholder("last name");
         lastName.setIcon(VaadinIcons.USER);
         lastName.setRequiredIndicatorVisible(true);
-        lastName.setComponentError(new UserError("last Name can not be empty"));
+
         contact.setPlaceholder("Cell Number");
         contact.setIcon(VaadinIcons.ENVELOPE);
+        contact.setRequiredIndicatorVisible(true);
+
 
         address.setPlaceholder("Address");
         address.setIcon(VaadinIcons.HOME);
         address.setRequiredIndicatorVisible(true);
-        address.setComponentError(new UserError("Enter Address"));
 
-        lastName.setPlaceholder("last name");
-        lastName.setIcon(VaadinIcons.USER);
-        lastName.setRequiredIndicatorVisible(true);
-        lastName.setComponentError(new UserError("last Name can not be empty"));
-        contact.setPlaceholder("Cell Number");
 
-        addComponents(firstName, lastName, contact, address, product, quantity, buttons);
+        addComponents(existingCustomer,firstName, lastName, contact, address, product, quantity, buttons);
 
         product.setItems(ProductService.getAll());
         quantity.setItems(QuantityConstants.values());
         save.setStyleName(ValoTheme.BUTTON_PRIMARY);
         save.setClickShortcut(ShortcutAction.KeyCode.ENTER);
 
-
-        customerBinder.forField(firstName).withValidator(name -> name.length() >= 3, "Name must contain at least three characters")
-                .bind(Customer::getFirstName, Customer::setFirstName);
         customerBinder.bindInstanceFields(this);
-        save.addClickListener(e -> {
 
-            if (firstName == null || lastName == null || contact == null || address == null || product.isEmpty() || quantity.isEmpty()) {
 
-            } else {
-                this.save();
+        existingCustomer.addValueChangeListener(e->{
+            if(e.getValue()){
+                firstName.setVisible(false);
+                lastName.setVisible(false);
+                address.setVisible(false);
+                contact.setVisible(false);
+            }else{
+                firstName.setVisible(true);
+                lastName.setVisible(true);
+                address.setVisible(true);
+                contact.setVisible(true);
             }
 
+
+        });
+        save.addClickListener(e -> {
+
+            if (validateFields()) {
+                this.save();
+            }
 
         });
         delete.addClickListener(e -> this.delete());
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-        customerBinder.setBean(customer);
+    private boolean validateFields() {
+        boolean passed = true;
+        if (ValidatorUtil.isEmpty(lastName) &&!existingCustomer.getValue()) {
+            lastName.setComponentError(new UserError("Last Name can not be empty"));
+            passed = false;
+        }
+        if (ValidatorUtil.isEmpty(firstName)&&!existingCustomer.getValue()) {
+            firstName.setComponentError(new UserError("Name can not be empty"));
+            passed = false;
 
-        delete.setVisible(customer.isPersisted());
-        setVisible(true);
-        firstName.selectAll();
+        }
+        if (ValidatorUtil.isEmpty(contact)&&!existingCustomer.getValue()) {
+            contact.setComponentError(new UserError("Contact number can not be empty"));
+            passed = false;
+        }
+        if (ValidatorUtil.isEmpty(address)&&!existingCustomer.getValue()) {
+            address.setComponentError(new UserError("Enter Address"));
+            passed = false;
+        }
+        if (product.isEmpty()) {
+            product.setComponentError(new UserError("You need to select product"));
+            passed = false;
+        }
+        if (quantity.isEmpty()) {
+            quantity.setComponentError(new UserError("Select a number of eggs you want"));
+            passed = false;
+        }
+        return passed;
     }
 
     private void delete() {
         CustomerService.delete(customer);
         myUI.updateList();
-        setVisible(false);
     }
 
     private void save() {
-        customer = new Customer();
-        System.out.println("Customer :"+customer);
-        customer.setFirstName(firstName.getValue());
-        customer.setLastName(lastName.getValue());
-        customer.setAddress(address.getValue());
-        customer.setContact(contact.getValue());
-        CustomerService.add(customer);
+        customer = getCustomerInformation();
+        if(customer == null){
+            pupulateCustomer();
+        }
+
         Product dbProduct = ProductService.getProductByName(product.getValue());
-        if(BillService.createBill(customer,dbProduct,quantity.getValue())){
-                myUI.updateList();
-                clearData();
-        }else {
+        if (BillService.createBill(customer, dbProduct, quantity.getValue())) {
+            myUI.updateList();
+            clearData();
+        } else {
             Window popupWindow = new Window(" Adding Order ");
             VerticalLayout subContent = new VerticalLayout();
             popupWindow.setContent(subContent);
@@ -124,6 +152,19 @@ public class OrderingForm extends FormLayout {
 
         }
 
+    }
+
+    private void pupulateCustomer() {
+        customer.setFirstName(firstName.getValue());
+        customer.setLastName(lastName.getValue());
+        customer.setAddress(address.getValue());
+        customer.setContact(contact.getValue());
+        CustomerService.add(customer);
+    }
+
+    private Customer getCustomerInformation() {
+
+        return CustomerService.getUserByNames(firstName.getValue(),lastName.getValue());
     }
 
     private void clearData() {

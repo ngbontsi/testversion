@@ -45,6 +45,11 @@ public class CustomerService {
 
     }
 
+    public static Customer getUserByNames(String firstName,String lastName){
+        System.out.println(DatabaseHandler.findEntity(SQLSTATEMENTS.CUSTOMER_BY_NAMES+"'"+firstName+"' and lastName = '"+lastName+"'"));
+        return (Customer)DatabaseHandler.findEntity(SQLSTATEMENTS.CUSTOMER_BY_NAMES+"'"+firstName+"' and lastName = '"+lastName+"'");
+    }
+
     public static void delete(Customer item) {
         getLogger().info("Delete user " + item);
 //        TODO
