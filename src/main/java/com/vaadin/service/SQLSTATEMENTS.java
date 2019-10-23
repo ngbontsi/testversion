@@ -15,5 +15,5 @@ public class SQLSTATEMENTS {
     public static final String CUSTOM_ODER_FOR_ALL = "SELECT cus.uid,cus.firstName,cus.lastName,bil.orderDate,pro.productName,bil.billPrice  productPrice, bil.payment " +
                                                         "from "+Bill.class.getSimpleName().toLowerCase() +" bil ,"+ Customer.class.getSimpleName().toLowerCase()+" cus ,"+
                                                             Product.class.getSimpleName().toLowerCase()+
-                                                                " pro where bil.customerId = cus.uid and bil.productId = pro.uid ";
+                                                                " pro where bil.customerId = cus.uid and bil.productId = pro.uid AND bil.paid = false";
 }
