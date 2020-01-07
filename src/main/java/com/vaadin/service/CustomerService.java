@@ -13,7 +13,20 @@ public class CustomerService extends GenericHibernateDAO<Customer, Long> impleme
 
     @Override
     public List<Customer> findByExample(Customer customer) {
-        fi
+
         return null;
     }
+
+
+    public Customer getUserByNames(String firstName, String lastName) {
+        return (Customer) getSession().createQuery("", Customer.class).setParameter("firstName", firstName).setParameter("lastName", lastName);
+
+    }
+
+    private String buildQueryString(String selectClause) {
+        StringBuilder queryStringBuilder = new StringBuilder(selectClause);
+        queryStringBuilder.append(" from Customer customer ");
+        return queryStringBuilder.toString();
+    }
+
 }

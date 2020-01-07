@@ -12,40 +12,19 @@ public class Bill {
     @Column(name = "uid")
     private Long id;
     @Column(name = "customerId")
-    private Long customerId;
+    private Customer customer;
     @Column(name = "productId")
-    private Long productId;
-    @Column(name = "quantity")
-    private Long quantity;
-    @Column(name = "billPrice")
+    private Product product;
+    @Column(name = "cost")
     private BigDecimal billPrice;
-    @Column(name = "orderDate")
+    @Column(name = "bildate")
     private LocalDate orderDate;
-    @Column(name = "paid")
+    @Column(name = "fullPaid")
     private boolean paid;
     @Column(name = "payment")
     private BigDecimal payment;
-    @Column(name = "outstandingBalance")
+    @Column(name = "outstanding")
     private BigDecimal outstandingBalance;
-
-    public BigDecimal getPayment() {
-        return payment;
-    }
-
-    public void setPayment(BigDecimal payment) {
-        this.payment = payment;
-    }
-
-    public BigDecimal getOutstandingBalance() {
-        return outstandingBalance;
-    }
-
-    public void setOutstandingBalance(BigDecimal outstandingBalance) {
-        this.outstandingBalance = outstandingBalance;
-    }
-
-    @Column(name = "paidDate")
-    private LocalDate paidDate;
 
     public Long getId() {
         return id;
@@ -55,28 +34,20 @@ public class Bill {
         this.id = id;
     }
 
-    public Long getCustomerId() {
-        return customerId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public Long getProductId() {
-        return productId;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public Long getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Long quantity) {
-        this.quantity = quantity;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public BigDecimal getBillPrice() {
@@ -103,11 +74,19 @@ public class Bill {
         this.paid = paid;
     }
 
-    public LocalDate getPaidDate() {
-        return paidDate;
+    public BigDecimal getPayment() {
+        return payment;
     }
 
-    public void setPaidDate(LocalDate paidDate) {
-        this.paidDate = paidDate;
+    public void setPayment(BigDecimal payment) {
+        this.payment = payment;
+    }
+
+    public BigDecimal getOutstandingBalance() {
+        return outstandingBalance;
+    }
+
+    public void setOutstandingBalance(BigDecimal outstandingBalance) {
+        this.outstandingBalance = outstandingBalance;
     }
 }

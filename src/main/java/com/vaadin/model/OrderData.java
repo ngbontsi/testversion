@@ -3,50 +3,66 @@ package com.vaadin.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.time.LocalDate;
+
 @Entity
+@Table(name = "orders")
 public class OrderData implements Serializable {
 
     @Id
     @Column(name = "uid")
     private Long id;
-    @Column(name = "firstName")
-    private String firstName;
-    @Column(name = "lastName")
-    private String lastName;
+    @Column(name = "customerId")
+    private Customer customer;
+    @Column(name = "productId")
+    private Product product;
+    @Column(name = "billId")
+    private Bill bill;
+    @Column(name = "quantity")
+    private Long quantity;
     @Column(name = "orderDate")
     private LocalDate orderDate;
-    @Column(name = "productName")
-    private String productName;
-    @Column(name = "productPrice")
-    private BigDecimal productPrice;
-    @Column(name = "payment")
-    private BigDecimal payment;
 
-    public BigDecimal getPayment() {
-        return payment;
+    public Long getId() {
+        return id;
     }
 
-    public void setPayment(BigDecimal payment) {
-        this.payment = payment;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public String getLastName() {
-        return lastName;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Bill getBill() {
+        return bill;
+    }
+
+    public void setBill(Bill bill) {
+        this.bill = bill;
+    }
+
+    public Long getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Long quantity) {
+        this.quantity = quantity;
     }
 
     public LocalDate getOrderDate() {
@@ -55,21 +71,5 @@ public class OrderData implements Serializable {
 
     public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public BigDecimal getProductPrice() {
-        return productPrice;
-    }
-
-    public void setProductPrice(BigDecimal productPrice) {
-        this.productPrice = productPrice;
     }
 }

@@ -1,7 +1,6 @@
 package com.vaadin.model;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "product")
@@ -12,8 +11,8 @@ public class Product {
     private Long id;
     @Column(name = "productName")
     private String productName;
-    @Column(name = "productPrice")
-    private BigDecimal productPrice;
+    @Column(name = "price")
+    private String productPrice;
 
     public Long getId() {
         return id;
@@ -31,11 +30,11 @@ public class Product {
         this.productName = productName;
     }
 
-    public BigDecimal getProductPrice() {
+    public String getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(BigDecimal productPrice) {
+    public void setProductPrice(String productPrice) {
         this.productPrice = productPrice;
     }
 }

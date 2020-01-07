@@ -3,8 +3,6 @@
 0src/main/java/com/vaadin/CustomerFormDesign.java,5/1/51f1d54cede47d2e9deeae3fb6eaca7f537b9d80
 b
 2src/main/webapp/VAADIN/themes/mytheme/mytheme.scss,e/a/ea241b308a8d16044edbe33baa52fb6474191880
-`
-0src/main/webapp/VAADIN/themes/mytheme/styles.css,7/3/73cb058b0389d697ce0c0d9f5946e96cc9361958
 a
 1src/main/webapp/VAADIN/themes/mytheme/styles.scss,a/9/a993a637c670603baf344dda2b6fb4790138bc23
 R
@@ -65,3 +63,14 @@ i
 0src/main/java/com/vaadin/forms/OrderingForm.java,4/4/44dc1b47664cc85ff6e4ced48b0e774e9b1e8b28
 [
 +src/main/resources/META-INF/persistence.xml,3/b/3be4f79b5828b3982f3f6a62bf8fc67b3adedf58
+a
+1src/main/java/com/vaadin/utils/ValidatorUtil.java,4/f/4f9cf7833da379d6e2856d96f40e8756fd1323a8
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+\
+,src/main/java/com/vaadin/db/dao/BillDAO.java,2/6/26bbbeec66da5c0627665b21345267e6ca8c5f64
+`
+0src/main/java/com/vaadin/db/dao/CustomerDAO.java,a/d/adbf27a7773a57bc66cf6fc1570654c32d6f0227
+_
+/src/main/java/com/vaadin/db/dao/ProductDAO.java,3/c/3c6aa330b2dd18d9d21fa521ae0feb2b1b8eaea5

@@ -14,4 +14,8 @@ public class ProductService extends GenericHibernateDAO<Product, Long> implement
     public List<Product> findByExample(Product product) {
         return null;
     }
+
+    public Product getByName(String value) {
+        return null;
+    }
 }
